@@ -1,0 +1,573 @@
+＜開場＞
+17:00 準備
+    PCの準備、電源確保、wifi無線LANの接続、出席者の確認、参加費の徴収(2,500円)
+
+    もし、FreeSpot の接続が上手くいかない場合、下記のサイトから直接認証する
+
+    https://www.freespot.com/users/register_mail.php
+
+    MAC アドレスの確認方法
+
+    ターミナルから
+    ifconfig
+    ...
+    en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+        ether 64:76:ba:a1:69:84 
+    ...
+
+    もしくは、リンゴマーク、-> このMacについて -> システムレポート ->
+    ネットワーク -> wifi -> MACアドレス
+
+    それでもだめなときはiPhoneデザリング。
+
+＜開始＞
+17:15 挨拶と本日の概要説明
+
+    挨拶
+
+    諸事情につき、本日は17:00-19:00の二時間の内容になります。
+
+    よなべPerlの活動については下記のブログを参照
+    http://blog.livedoor.jp/yonabe_perl/
+
+    告知の通り、本日はWEBプログラミングの概要をつかんでいただく内容
+    
+    プログラミングとはコンピューターを制御する技術
+    制御とは、仕組みをつくるチカラ
+
+    プログラミングは幅がひろいため、WEBアプリケーションに絞っています。
+
+    現実的にプログラミング初心者がWEBアプリを一人の力で開発できるようになるには
+    １年から２年くらいの余裕を見ておいたほうがよい
+    最短の近道は大まかな概要をつかんでいただき、必要な技術を必要なときに
+    コツコツとよなべをするかのように取り組むのが最短。
+
+    参加者全員一人づつ１分程度で自己紹介お願いします。
+
+17:20 webブラウザとテキストエディッタ
+
+    ・最低限度の環境設定
+
+    拡張子を表示するを設定する
+
+    Windows は下記参照
+    http://121ware.com/qasearch/1007/app/servlet/qadoc?QID=013988
+
+    Mac は下記参照
+    http://pc-karuma.net/mac-finder-show-file-extensions/
+
+    ・webブラウザを用意(インストール)
+
+    google chrome
+
+    https://support.google.com/chrome/answer/95346?hl=ja
+
+    ・テキストエディッタを用意(インストール)
+
+    簡単な HTML ファイルを作成してみる
+
+    すぐに使えるテキストエディッタを準備
+
+    下記サイト参考
+    http://techacademy.jp/magazine/986
+
+    Windows は TeraPad（テラパッド）
+    http://techacademy.jp/magazine/4179
+
+    Mac は mi（ミ）
+    http://techacademy.jp/magazine/4534
+
+    ・HTML ファイルの作成
+
+    ファイルを保存する場所を決め、yonabe という新規フォルダを作成
+
+    Mac は ホームディレクトリ -> 書類 -> yonabe(フォルダ)
+
+    Windows は マイドキュメント -> yonabe(フォルダ)
+
+    ファイル名を決める: yonabe.html
+
+    テキストエディタで最初に空のファイルにファイル名を付けて保存
+
+    文字コードは utf-8 にしておく
+
+    下記をファイルに記述後、保存
+
+    ファイル名: yonabe.html
+
+    -----
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>title yonabe</title>
+    </head>
+    <body>
+        <p>yonabe Perl web site</p>
+    </body>
+    </html>
+
+    -----
+
+    作成した HTML ファイルをwebブラウザで表示(HTML ファイルを直接開く)
+
+    グーグルクローム -> ファイル -> ファイルを開く -> yonabe.html をひらく
+
+    WEB ブラウザに表示されたのを確認
+
+    表示 -> 開発/管理 -> Elements
+    もしくは
+    画面を右クリックで 要素の検証
+
+    WEBブラウザが HTML ファイルをレンダリングしている
+
+    レンダリング (rendering)
+    取得したデータを整形して、ユーザーの目に見える形で表示
+
+    WEB ブラウザは HTML の形式で記述されたテキストファイルをレンダリングする
+
+    -----
+
+    まとめ 「webブラウザとテキストエディッタ」
+    ・テキストファイルを作成するにはテキストエディッタを使う
+    ・HTML ファイルとはHTML形式で記述された、テキストファイル
+    ・テキストエディタは基本的には同じであるが、プログラマーに人気のあるテキストエディッタが存在する。
+        例: サブライムテキスト、Vim(ビム), Emacs(イーマックス), など
+    ・WEB ブラウザは HTML の形式で記述されたテキストファイルをレンダリングしている
+
+    -----
+
+17:30 HTML での基本的な記述の仕方
+
+    基本的なHTML記述のルール(HTML5)
+    HTMLの記述とはテキストを構造化、マークアップしてゆく
+    先ほど作成した yonabe.html ファイルに追記しながらマークアップの基本を知る
+
+    -----
+
+    <!DOCTYPE html>
+    <html lang="ja"></html>
+    <!-- lang="ja" は日本語文書 -->
+    <head>
+        <title>title yonabe</title>
+    </head>
+    <body>
+        <p>yonabe Perl web site</p>
+
+        <!-- まとめ記事を追加 -->
+        <div>
+            <p>まとめ 「webブラウザとテキストエディッタ」</p>
+            <ul>
+            <li>テキストファイルを作成するにはテキストエディッタを使う</li>
+            <li>HTML ファイルとはHTML形式で記述された、テキストファイル</li>
+            <li>テキストエディタは基本的には同じであるが、プログラマーに人気のあるテキストエディッタが存在する。<br>
+            例: サブライムテキスト、Vim(ビム), Emacs(イーマックス), など</li>
+            <li>WEB ブラウザは HTML の形式で記述されたテキストファイルをレンダリングしている,</li>
+            </ul>
+        </div>
+
+    </body>
+    </html>
+
+    -----
+
+    HTML タグに関する参考ページ (タグインデックス)
+    http://www.tagindex.com/index.html
+
+    HTML形式で記述する場合始まりに宣言を記述する <!DOCTYPE html>
+
+    最初に記述するタグは <html></html> 始まりと終わりのタグを書く
+
+    基本的なHTMLファイルの構造は下記
+
+    +---------------------+
+    | HTML                |
+    | +-----------------+ |
+    | |HEAD             | |
+    | | 表示されない部分 | |
+    | +-----------------+ |
+    | +-----------------+ |
+    | |BODY             | |
+    | | 表示される部分   | |
+    | |                 | |
+    | |                 | |
+    | |                 | |
+    | |                 | |
+    | +-----------------+ |
+    +---------------------+
+
+    まとめ 「HTML での基本的な記述の仕方」
+    ・HTML とはテキストを構造化して、しるしをつける
+    ・構造化とは入れ子にしてゆき、ねっこ(ルート)からたどれるようにする
+    ・HTML ファイルには表示されない部分(HEAD)に様々な情報を添付できる
+
+17:40 CSS でのデザインを整える
+
+    先ほど作成した yonabe.html ファイルにまとめ記事を追記する
+
+    -----
+
+    <!DOCTYPE html>
+    <html lang="ja"></html>
+    <!-- lang="ja" は日本語文書 -->
+    <head>
+        <title>title yonabe</title>
+    </head>
+    <body>
+        <p>yonabe Perl web site</p>
+
+        <!-- まとめ記事を追加 -->
+        <div>
+            <p>まとめ 「webブラウザとテキストエディッタ」</p>
+            <ul>
+            <li>テキストファイルを作成するにはテキストエディッタを使う</li>
+            <li>HTML ファイルとはHTML形式で記述された、テキストファイル</li>
+            <li>テキストエディタは基本的には同じであるが、プログラマーに人気のあるテキストエディッタが存在する。<br>
+            例: サブライムテキスト、Vim(ビム), Emacs(イーマックス), など</li>
+            <li>WEB ブラウザは HTML の形式で記述されたテキストファイルをレンダリングしている,</li>
+            </ul>
+        </div>
+
+        <!-- HTML での基本的な記述の仕方を追加 -->
+        <div>
+            <p>まとめ 「HTML での基本的な記述の仕方」</p>
+            <ul>
+            <li>HTML とはテキストを構造化して、しるしをつける</li>
+            <li>構造化とは入れ子にしてゆき、ねっこ(ルート)からたどれるようにする</li>
+            <li>HTML ファイルには表示されない部分(HEAD)に様々な情報を添付できる</li>
+            </ul>
+        </div>
+
+    </body>
+    </html>
+
+    -----
+
+    HTML ファイルの head 要素内に style 要素を配置して、スタイルの設定内容を記述
+    線、色、文字の大きさを変更、表示する位置を決める
+    下記を参考にして、css 要素を追加する
+
+    css タグに関する参考ページ (タグインデックス)
+    http://www.tagindex.com/index.html
+
+    -----
+
+    <!DOCTYPE html>
+    <html lang="ja"></html>
+    <!-- lang="ja" は日本語文書 -->
+    <head>
+        <title>title yonabe</title>
+
+        <!-- ここにスタイルシート要素を記述 -->
+        <style type="text/css">
+
+        /* 外枠をデザイン 背景 表示位置  */
+        body { padding: 20px; }
+
+        /* タイトルをデザイン 文字 大きさ 色  */
+        #siteTitle { font-size: xx-large; }
+        #siteTitle { background-color: silver; }
+        #siteTitle { text-align: center; }
+        #siteTitle { padding: 10px; }
+
+        /* まとめ記事をデザイン 線 文字 大きさ 色 表示位置 */
+        .section { border: 1px black solid; }
+        .section { margin-bottom: 20px; }
+
+        /* まとめ記事のタイトルをデザイン */
+        .sectionTitle { font-size: x-large; }
+        .sectionTitle { text-align: left; }
+        .sectionTitle { padding: 10px; }
+
+        /* まとめ記事の記事をデザイン */
+        .sectionContents { font-size: large; }
+
+        </style>
+    </head>
+    <body>
+        <p id="siteTitle">yonabe Perl web site</p>
+
+        <!-- まとめ記事を追加 -->
+        <div class="section">
+            <p class="sectionTitle">まとめ 「webブラウザとテキストエディッタ」</p>
+            <ul class="sectionContents">
+            <li>テキストファイルを作成するにはテキストエディッタを使う</li>
+            <li>HTML ファイルとはHTML形式で記述された、テキストファイル</li>
+            <li>テキストエディタは基本的には同じであるが、プログラマーに人気のあるテキストエディッタが存在する。<br>
+            例: サブライムテキスト、Vim(ビム), Emacs(イーマックス), など</li>
+            <li>WEB ブラウザは HTML の形式で記述されたテキストファイルをレンダリングしている,</li>
+            </ul>
+        </div>
+
+        <!-- HTML での基本的な記述の仕方を追加 -->
+        <div class="section">
+            <p class="sectionTitle">まとめ 「HTML での基本的な記述の仕方」</p>
+            <ul class="sectionContents">
+            <li>HTML とはテキストを構造化して、しるしをつける</li>
+            <li>構造化とは入れ子にしてゆき、ねっこ(ルート)からたどれるようにする</li>
+            <li>HTML ファイルには表示されない部分(HEAD)に様々な情報を添付できる</li>
+            </ul>
+        </div>
+
+    </body>
+    </html>
+
+    -----
+
+    まとめ 「CSS でのデザインを整える」
+    ・CSS とは HTML タグに対してどのように装飾するかを指定ができる
+    ・HTML ファイルに直接記入する方法と、外部ファイルに書き出し読み込む方法がある
+    ・CSS は class タグ、id タグ、HTML タグに直接していするやり方がある
+
+17:50 JavaScript を使った簡単なスクリプトを作成
+
+    JavaScript のライブラリ jquery
+
+    参考サイト
+    日本語翻訳サイト
+    http://semooh.jp/jquery/
+
+    公式サイト(ダウンロードページ)
+    http://jquery.com/download/
+
+    これをクリックする
+    Download the compressed, production jQuery 1.11.3
+    ファイルを空白文字を削除してファイル容量を減らしている
+
+    先ほどのまとめを加えて動きのあるHTMLファイルを作成する
+
+    -----
+
+    <!DOCTYPE html>
+    <html lang="ja"></html>
+    <!-- lang="ja" は日本語文書 -->
+    <head>
+        <title>title yonabe</title>
+
+        <!-- ここにスタイルシート要素を記述 -->
+        <style type="text/css">
+
+        /* 外枠をデザイン 背景 表示位置  */
+        body { padding: 20px; }
+
+        /* タイトルをデザイン 文字 大きさ 色  */
+        #siteTitle { font-size: xx-large; }
+        #siteTitle { background-color: silver; }
+        #siteTitle { text-align: center; }
+        #siteTitle { padding: 10px; }
+
+        /* まとめ記事をデザイン 線 文字 大きさ 色 表示位置 */
+        .section { border: 1px black solid; }
+        .section { margin-bottom: 20px; }
+
+        /* まとめ記事のタイトルをデザイン */
+        .sectionTitle { font-size: x-large; }
+        .sectionTitle { text-align: left; }
+        .sectionTitle { padding: 10px; }
+
+        /* まとめ記事の記事をデザイン */
+        .sectionContents { font-size: large; }
+
+        </style>
+
+        <!-- ダウンロードした Jqueryライブラリを読み込み -->
+        <script type="text/javascript" src="./jquery-1.11.3.min.js"></script>
+
+        <!-- ここに処理を記述します。 -->
+        <script type="text/javascript">
+        $(document).ready(function(){
+
+            // 「webブラウザとテキストエディッタ」のタイトルのところをクリックすると表示
+            $("#sectionTitleWeb").click(function () {
+                $("#sectionWeb").show();
+            });
+
+            // 「webブラウザとテキストエディッタ」のリストのところをクリックすると隠す
+            $("#sectionWeb").click(function () {
+                $(this).hide();
+            });
+
+        });
+        </script>
+    </head>
+    <body>
+        <p id="siteTitle">yonabe Perl web site</p>
+
+        <!-- まとめ記事を追加 -->
+        <div class="section">
+            <p class="sectionTitle" id="sectionTitleWeb">まとめ 「webブラウザとテキストエディッタ」</p>
+            <ul class="sectionContents" id="sectionWeb">
+            <li>テキストファイルを作成するにはテキストエディッタを使う</li>
+            <li>HTML ファイルとはHTML形式で記述された、テキストファイル</li>
+            <li>テキストエディタは基本的には同じであるが、プログラマーに人気のあるテキストエディッタが存在する。<br>
+            例: サブライムテキスト、Vim(ビム), Emacs(イーマックス), など</li>
+            <li>WEB ブラウザは HTML の形式で記述されたテキストファイルをレンダリングしている,</li>
+            </ul>
+        </div>
+
+        <!-- HTML での基本的な記述の仕方を追加 -->
+        <div class="section">
+            <p class="sectionTitle">まとめ 「HTML での基本的な記述の仕方」</p>
+            <ul class="sectionContents">
+            <li>HTML とはテキストを構造化して、しるしをつける</li>
+            <li>構造化とは入れ子にしてゆき、ねっこ(ルート)からたどれるようにする</li>
+            <li>HTML ファイルには表示されない部分(HEAD)に様々な情報を添付できる</li>
+            </ul>
+        </div>
+
+        <!-- CSS でのデザインを整えるを追加 -->
+        <div class="section">
+            <p class="sectionTitle">まとめ 「CSS でのデザインを整える」</p>
+            <ul class="sectionContents">
+            <li>CSS とは HTML タグに対してどのように装飾するかを指定ができる</li>
+            <li>HTML ファイルに直接記入する方法と、外部ファイルに書き出し読み込む方法がある</li>
+            <li>CSS は class タグ、id タグ、HTML タグに直接していするやり方がある</li>
+            </ul>
+        </div>
+
+    </body>
+    </html>
+
+    -----
+
+    上記を参考にして、他の２つの記事にも隠す、表示のアクションを追加
+
+    最初にロードされた時はリストを隠すようにアクションを追加
+
+    まとめ 「JavaScript を使った簡単なスクリプトを作成」
+    ・JavaScript はレンダリングされた HTML ファイルを書き換えることができる
+    ・JavaScript は WEB ブラウザのみで動作ができる
+    ・jquery とは JavaScript を記述しやすくしたライブラリ
+    ・JavaScript は HTML ファイルの最後に記述した方が良いが jquery が吸収してくれる
+
+18:20 WEBブラウザでWEBページが表示される仕組み
+
+URL の意味
+
+    URL (Uniform Resource Locator, ユニフォームリソースロケータ)
+
+    さくらインターネットのサイトにアクセスしてみる
+
+    さくらインターネット
+    http://www.sakura.ad.jp
+
+    http -> (プロコトル名)
+    www.sakura.ad.jp -> (ドメイン名)
+    * ドメイン名をサーバー名と言う事もありますが、
+        ここではドメイン名にしておきます。
+
+    イメージ
+    接続方式を指定://アクセスするWEBサーバーを指定
+
+ドメイン名の正体
+
+    入力の方法を変えてみる
+    http://210.224.168.100
+
+    www.sakura.ad.jp(ドメイン名) = 210.224.168.100(IPアドレス)
+
+    web サーバーにアクセスする前に DNS サーバーにアクセスして IP アドレス取得
+
+    WEBブラウザ(PC) -> インターネット -> DNS サーバー(質問 www.sakura.ad.jp)
+    WEBブラウザ(PC) <- インターネット <- DNS サーバー(回答 210.224.168.100)
+    WEBブラウザ(PC) -> インターネット -> WEB サーバー(IP 210.224.168.100)
+    WEBブラウザ(PC) <- インターネット <- DNS サーバー(該当の HTML ファイル)
+    WEBブラウザ(PC) (レンスポンスされた HTML ファイルをレンダリング)
+
+    DNS サーバーにドメイン名に該当する IP アドレスを問い合わせた後に
+    該当する IP アドレスにひも付けられた WEB サーバーにアクセスする
+
+ドメイン名から該当の IP アドレスを調べて見る
+
+    さくらインターネットの場合
+    http://www.sakura.ad.jp
+
+    Mac はターミナルから Windows はコマンドプロンプトから
+
+    -----
+
+    nslookup www.sakura.ad.jp
+
+    ...
+
+    Non-authoritative answer:
+    Name:   www.sakura.ad.jp
+    Address: 210.224.168.100
+
+    -----
+
+    ドメイン名から IP アドレスを特定する事が出来る
+
+    他の web サイトの IP アドレスも取得してみる
+
+    例:
+    はてな(ポータルサイト)
+        http://www.hatena.ne.jp/
+        http://59.106.194.19
+
+        nslookup www.hatena.ne.jp
+
+    ゲオ(レンタルビデオサイト)
+        http://rental.geo-online.co.jp/
+        http://203.131.196.216
+
+        nslookup rental.geo-online.co.jp
+
+    キャンプファイアー(クラウドファンディングサイト)
+        http://camp-fire.jp/
+        http://54.248.216.97
+
+        nslookup camp-fire.jp
+
+    -----
+
+    ドメイン名に対して、一つの IP アドレスが紐付いているのがわかる
+
+    基本はドメイン名と IP アドレスは一つづつの組み合わせであるが
+    現実的には複数の組み合わせが存在する
+
+    例:
+    ヤフー(ポータルサイト)
+
+    http://www.yahoo.co.jp/
+    http://118.151.231.231
+    http://182.22.39.242
+    http://182.22.40.240
+    http://183.79.231.182
+
+    nslookup www.yahoo.co.jp
+
+    一つのドメイン名に対して複数の IP アドレスが登録されている
+
+    例:
+    さくらインターネットでレンタルサーバーを借りた場合
+
+    http://yonabemt.sakura.ne.jp
+    http://219.94.192.72
+
+    nslookup yonabemt.sakura.ne.jp
+
+    IP アドレスでは直接アクセスする事ができない
+
+18:30 WEBサーバーが稼働しているシステムは？
+
+    ほとんどのレンタルサーバーは Linux といわれる UNIX 系のシステムで稼働している
+
+    UNIX 系のシステムを制御するためのプログラミング言語は多数存在
+        例: C言語, Ruby, Perl, PHP, Python, など多数存在
+
+    WEB アプリを作るには UNIX 系のシステムが動作する汎用プログラミング言語であれば可能
+
+    WEB アプリを作るには資料の多さやコーディングのしやすさからスクリプト言語が好まれる
+
+    基本的にプログラミング言語の動作原理は同じ
+
+    作りたいシステムの概要を理解すると最適なプログラミング言語を選択することができる
+
+    続きは、おためしコースで
+
+18:45 終わりの挨拶、質疑応答
+
+
+＜終了＞
+19:00 退場

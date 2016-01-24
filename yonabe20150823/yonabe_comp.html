@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!-- lang="ja" は日本語文書 -->
+<head>
+    <title>title yonabe</title>
+
+    <!-- ここにスタイルシート要素を記述 -->
+    <style type="text/css">
+
+    /* 外枠をデザイン 背景 表示位置  */
+    body { padding: 20px; }
+
+    /* タイトルをデザイン 文字 大きさ 色  */
+    #siteTitle { font-size: xx-large; }
+    #siteTitle { background-color: silver; }
+    #siteTitle { text-align: center; }
+    #siteTitle { padding: 10px; }
+
+    /* まとめ記事をデザイン 線 文字 大きさ 色 表示位置 */
+    .section { border: 1px black solid; }
+    .section { margin-bottom: 20px; }
+
+    /* まとめ記事のタイトルをデザイン */
+    .sectionTitle { font-size: x-large; }
+    .sectionTitle { text-align: left; }
+    .sectionTitle { padding: 10px; }
+
+    /*カーソルを合わせると矢印、背景変更 */
+    .sectionTitle { cursor: pointer; }
+    .sectionTitle:hover { background-color: silver; }
+
+    /* まとめ記事の記事をデザイン */
+    .sectionContents { font-size: large; }
+
+    /*カーソルを合わせると矢印*/
+    .sectionContents { cursor: pointer; }
+    .sectionContents:hover { background-color: silver; }
+
+    </style>
+
+    <!-- ダウンロードした Jqueryライブラリを読み込み -->
+    <script type="text/javascript" src="./jquery-1.11.3.min.js"></script>
+
+    <!-- ここに処理を記述します。 -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+        $("#sectionWeb").hide();
+        $("#sectionHtml").hide();
+        $("#sectionCss").hide();
+        $("#sectionJs").hide();
+
+        // 「webブラウザとテキストエディッタ」のタイトルのところをクリックすると表示
+        $("#sectionTitleWeb").click(function () {
+            $("#sectionWeb").show();
+        });
+
+        // 「webブラウザとテキストエディッタ」のリストのところをクリックすると隠す
+        $("#sectionWeb").click(function () {
+            $(this).hide();
+        });
+
+        $("#sectionTitleHtml").click(function () { $("#sectionHtml").show(); });
+        $("#sectionHtml").click(function () { $(this).hide(); });
+        $("#sectionTitleCss").click(function () { $("#sectionCss").show(); });
+        $("#sectionCss").click(function () { $(this).hide(); });
+        $("#sectionTitleJs").click(function () { $("#sectionJs").show(); });
+        $("#sectionJs").click(function () { $(this).hide(); });
+    });
+    </script>
+</head>
+<body>
+    <p id="siteTitle">yonabe Perl web site</p>
+
+    <!-- まとめ記事を追加 -->
+    <div class="section">
+        <p class="sectionTitle" id="sectionTitleWeb">まとめ 「webブラウザとテキストエディッタ」</p>
+        <ul class="sectionContents" id="sectionWeb">
+        <li>テキストファイルを作成するにはテキストエディッタを使う</li>
+        <li>HTML ファイルとはHTML形式で記述された、テキストファイル</li>
+        <li>テキストエディタは基本的には同じであるが、プログラマーに人気のあるテキストエディッタが存在する。<br>
+        例: サブライムテキスト、Vim(ビム), Emacs(イーマックス), など</li>
+        <li>WEB ブラウザは HTML の形式で記述されたテキストファイルをレンダリングしている,</li>
+        </ul>
+    </div>
+
+    <!-- HTML での基本的な記述の仕方を追加 -->
+    <div class="section">
+        <p class="sectionTitle" id="sectionTitleHtml">まとめ 「HTML での基本的な記述の仕方」</p>
+        <ul class="sectionContents" id="sectionHtml">
+        <li>HTML とはテキストを構造化して、しるしをつける</li>
+        <li>構造化とは入れ子にしてゆき、ねっこ(ルート)からたどれるようにする</li>
+        <li>HTML ファイルには表示されない部分(HEAD)に様々な情報を添付できる</li>
+        </ul>
+    </div>
+
+    <!-- CSS でのデザインを整えるを追加 -->
+    <div class="section">
+        <p class="sectionTitle" id="sectionTitleCss">まとめ 「CSS でのデザインを整える」</p>
+        <ul class="sectionContents" id="sectionCss">
+        <li>CSS とは HTML タグに対してどのように装飾するかを指定ができる</li>
+        <li>HTML ファイルに直接記入する方法と、外部ファイルに書き出し読み込む方法がある</li>
+        <li>CSS は class タグ、id タグ、HTML タグに直接していするやり方がある</li>
+        </ul>
+    </div>
+
+    <!-- JavaScript を使った簡単なスクリプトを作成 -->
+    <div class="section">
+        <p class="sectionTitle" id="sectionTitleJs">まとめ 「JavaScript を使った簡単なスクリプトを作成」</p>
+        <ul class="sectionContents" id="sectionJs">
+        <li>JavaScript はレンダリングされた HTML ファイルを書き換えることができる</li>
+        <li>JavaScript は WEB ブラウザのみで動作ができる</li>
+        <li>jquery とは JavaScript を記述しやすくしたライブラリ</li>
+        <li>JavaScript は HTML ファイルの最後に記述した方が良いが jquery が吸収してくれる</li>
+        </ul>
+    </div>
+
+</body>
+</html>
